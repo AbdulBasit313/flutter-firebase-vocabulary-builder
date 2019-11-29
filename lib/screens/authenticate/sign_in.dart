@@ -1,5 +1,7 @@
 import 'package:vocabulary_app/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:vocabulary_app/shared/constants.dart';
+// import 'package:vocabulary_app/shared/constants.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -21,11 +23,11 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.blue[800],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        // backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Sign in to Brew Crew'),
+        title: Text('Sign in to Vocaby'),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -36,52 +38,72 @@ class _SignInState extends State<SignIn> {
           )
         ],
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 20.0),
-              TextFormField(
-                validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                onChanged: (val) {
-                  setState(() => email = val);
-                },
-              ),
-              SizedBox(height: 20.0),
-              TextFormField(
-                obscureText: true,
-                validator: (val) =>
-                    val.length < 6 ? 'Enter a password 6+ chars long' : null,
-                onChanged: (val) {
-                  setState(() => password = val);
-                },
-              ),
-              SizedBox(height: 20.0),
-              RaisedButton(
-                  color: Colors.pink[400],
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(color: Colors.white),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24.0),
+              color: Colors.blue[300],
+            ),
+            width: 300,
+            height: 400,
+            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter Email',
+                      prefixIcon: Icon(Icons.email),
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter an email' : null,
+                    onChanged: (val) {
+                      setState(() => email = val);
+                    },
                   ),
-                  onPressed: () async {
-                    if (_formKey.currentState.validate()) {
-                      dynamic result = await _auth.signInWithEmailAndPassword(
-                          email, password);
-                      if (result == null) {
-                        setState(() {
-                          error = 'Either email or passoword is wrong';
-                        });
-                      }
-                    }
-                  }),
-              SizedBox(height: 12.0),
-              Text(
-                error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter Password',
+                      prefixIcon: Icon(Icons.security),
+                    ),
+                    obscureText: true,
+                    validator: (val) => val.length < 6
+                        ? 'Enter a password 6+ chars long'
+                        : null,
+                    onChanged: (val) {
+                      setState(() => password = val);
+                    },
+                  ),
+                  Spacer(),
+                  // SizedBox(height: 100.0),
+                  RaisedButton(
+                      color: Colors.blue[100],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Text('Sign In'),
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()) {
+                          dynamic result = await _auth
+                              .signInWithEmailAndPassword(email, password);
+                          if (result == null) {
+                            setState(() {
+                              error = 'Either email or passoword is wrong';
+                            });
+                          }
+                        }
+                      }),
+                  SizedBox(height: 12.0),
+                  Text(
+                    error,
+                    style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

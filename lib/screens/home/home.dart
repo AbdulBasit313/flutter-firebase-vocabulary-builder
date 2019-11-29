@@ -11,10 +11,10 @@ class Home extends StatelessWidget {
     final user = Provider.of<User>(context);
     return Container(
       child: Scaffold(
-        backgroundColor: Colors.brown[50],
+        backgroundColor: Colors.blue[800],
         appBar: AppBar(
-          title: Text('Brew Crew'),
-          backgroundColor: Colors.brown[400],
+          // centerTitle: true,
+          title: Text('Vocaby'),
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
@@ -27,8 +27,16 @@ class Home extends StatelessWidget {
           ],
         ),
         body: Container(
-          child: Text('Hello ${user.email} welcom to app!'),
-          // child: Text('Hello  welcom to app!'),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Hello ${user.email} welcom to app!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22.0,
+              ),
+            ),
+          ),
         ),
       ),
     );
