@@ -13,7 +13,6 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.blue[800],
         appBar: AppBar(
-          // centerTitle: true,
           title: Text('Vocaby'),
           elevation: 0.0,
           actions: <Widget>[
