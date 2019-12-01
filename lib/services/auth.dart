@@ -1,5 +1,6 @@
 import 'package:vocabulary_app/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vocabulary_app/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -50,8 +51,11 @@ class AuthService {
       );
       FirebaseUser user = result.user;
       // create a new document for the user with the uid
-      // await DatabaseService(uid: user.uid)
-      // .updateUserData('0', 'new crew member', 100);
+      await DatabaseService(uid: user.uid).updateUserData(
+          'invincible',
+          'adjective',
+          'impossible to defeat or overcome, bulletproof',
+          'The loss proved that the team is not invincible');
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
