@@ -1,6 +1,7 @@
 import 'package:provider/provider.dart';
 // import 'package:vocabulary_app/models/user.dart';
 import 'package:vocabulary_app/models/vocab.dart';
+import 'package:vocabulary_app/screens/home/add_word.dart';
 import 'package:vocabulary_app/screens/home/vocab_list.dart';
 import 'package:vocabulary_app/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -29,19 +30,18 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddWord(),
+              ),
+            );
+          },
+          child: Icon(Icons.add),
+        ),
         body: VocabList(),
-        // body: Container(
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Text(
-        //       'Hello ${user.email} welcom to app!',
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontSize: 22.0,
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ),
     );
   }

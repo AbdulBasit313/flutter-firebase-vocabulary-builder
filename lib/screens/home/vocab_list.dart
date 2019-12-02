@@ -10,15 +10,19 @@ class VocabList extends StatefulWidget {
 class _VocabListState extends State<VocabList> {
   @override
   Widget build(BuildContext context) {
-    final vocabs = Provider.of<List<Vocab>>(context);
+    // final vocabs = Provider.of<List<Vocab>>(context);
 
-    vocabs.forEach((vocab) {
-      print('word === ${vocab.word}');
-      print('partsOfSpeech === ${vocab.partsOfSpeech}');
-      print('meaning === ${vocab.meaning}');
-      print('sentence === ${vocab.sentence}');
-    });
+    // vocabs.forEach((vocab) {
+    //   print('word === ${vocab.word}');
+    //   print('partsOfSpeech === ${vocab.partsOfSpeech}');
+    //   print('meaning === ${vocab.meaning}');
+    //   print('sentence === ${vocab.sentence}');
+    // });
 
-    return Container();
+    return Container(
+      child: Text(
+        'list of words',
+      ),
+    );
   }
 }

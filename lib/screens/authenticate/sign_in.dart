@@ -2,7 +2,6 @@ import 'package:vocabulary_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vocabulary_app/shared/constants.dart';
 import 'package:vocabulary_app/shared/loading.dart';
-// import 'package:vocabulary_app/shared/constants.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
