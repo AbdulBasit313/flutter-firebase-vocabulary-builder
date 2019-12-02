@@ -23,7 +23,7 @@ class _AddWordState extends State<AddWord> {
         elevation: 0.0,
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.filter),
+            icon: Icon(Icons.filter_list),
             label: Text('filter'),
             onPressed: () {},
           ),
@@ -36,8 +36,8 @@ class _AddWordState extends State<AddWord> {
               borderRadius: BorderRadius.circular(24.0),
               color: Colors.blue[300],
             ),
-            width: 300,
-            height: 400,
+            width: 340,
+            // height: 400,
             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
             child: Form(
               key: _formKey,
@@ -47,31 +47,60 @@ class _AddWordState extends State<AddWord> {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Word',
+                      filled: true,
+                      fillColor: Colors.white60,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(),
+                      ),
                     ),
                     // validator: (val) => val.isEmpty ? 'Enter an email' : null,
                     onChanged: (val) {
                       setState(() => word = val);
                     },
                   ),
+                  SizedBox(height: 10.0),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Parts Of Speech',
+                      filled: true,
+                      fillColor: Colors.white60,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(),
+                      ),
                     ),
                     onChanged: (val) {
                       setState(() => partsOfSpeech = val);
                     },
                   ),
+                  SizedBox(height: 10.0),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Meaning',
+                      filled: true,
+                      fillColor: Colors.white60,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(),
+                      ),
                     ),
                     onChanged: (val) {
                       setState(() => meaning = val);
                     },
                   ),
+                  SizedBox(height: 10.0),
                   TextFormField(
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 45.0, horizontal: 10.0),
                       hintText: 'Sentence',
+                      filled: true,
+                      fillColor: Colors.white60,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(),
+                      ),
                     ),
                     onChanged: (val) {
                       setState(() => sentence = val);
@@ -79,6 +108,8 @@ class _AddWordState extends State<AddWord> {
                   ),
                   SizedBox(height: 100.0),
                   RaisedButton(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 15.0, horizontal: 90.0),
                       color: Colors.blue[100],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.0),
