@@ -17,7 +17,9 @@ class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   // text field state
+  String name = '';
   String email = '';
+  String pass = '';
   String password = '';
   String error = '';
 
@@ -46,13 +48,25 @@ class _RegisterState extends State<Register> {
                     color: Colors.blue[300],
                   ),
                   width: 300,
-                  height: 400,
+                  height: 500,
                   padding:
                       EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                   child: Form(
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
+                        SizedBox(height: 20.0),
+                        TextFormField(
+                          decoration: textInputDecoration.copyWith(
+                            hintText: 'Enter Name',
+                            prefixIcon: Icon(Icons.person),
+                          ),
+                          validator: (val) =>
+                              val.isEmpty ? 'Enter Full Name' : null,
+                          onChanged: (val) {
+                            setState(() => name = val);
+                          },
+                        ),
                         SizedBox(height: 20.0),
                         TextFormField(
                           decoration: textInputDecoration.copyWith(
@@ -75,6 +89,19 @@ class _RegisterState extends State<Register> {
                           validator: (val) => val.length < 6
                               ? 'Enter a password 6+ chars long'
                               : null,
+                          onChanged: (val) {
+                            setState(() => pass = val);
+                          },
+                        ),
+                        SizedBox(height: 20.0),
+                        TextFormField(
+                          decoration: textInputDecoration.copyWith(
+                            hintText: 'Retype password',
+                            prefixIcon: Icon(Icons.security),
+                          ),
+                          obscureText: true,
+                          validator: (val) =>
+                              val != pass ? 'Password doesn\'t match' : null,
                           onChanged: (val) {
                             setState(() => password = val);
                           },
