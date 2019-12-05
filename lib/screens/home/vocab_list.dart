@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
+import 'package:vocabulary_app/models/user.dart';
 import 'package:vocabulary_app/models/vocab.dart';
 import 'package:vocabulary_app/screens/home/vocab_tile.dart';
 
@@ -12,8 +13,9 @@ class _VocabListState extends State<VocabList> {
   @override
   Widget build(BuildContext context) {
     final vocabs = Provider.of<List<Vocab>>(context);
+    // final vocabs = Provider.of<UserData>(context);
 
-    print('vocabs length ${vocabs.length}');
+    print('vocabs length ======= ${vocabs.length}');
     // vocabs.forEach((vocab) {
     //   print('word === ${vocab.word}');
     //   print('partsOfSpeech === ${vocab.partsOfSpeech}');
