@@ -13,7 +13,7 @@ class VocabTile extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
           child: ListTile(
             title: Text(vocab.word),
-            subtitle: Text(vocab.meaning),
+            subtitle: Text(vocab.partsOfSpeech),
           ),
         ));
   }
