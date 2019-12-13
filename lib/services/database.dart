@@ -25,7 +25,9 @@ class DatabaseService {
   // vocab list form snapshot
   List<Vocab> _vocabListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
+      print('doc =====> ${doc.documentID}');
       return Vocab(
+        docId: doc.documentID ?? '',
         uid: doc.data['uid'] ?? '',
         word: doc.data['word'] ?? '',
         partsOfSpeech: doc.data['partsOfSpeech'] ?? '',
@@ -35,7 +37,6 @@ class DatabaseService {
 
   // get vocab stream
   Stream<List<Vocab>> vocab({String uid}) {
-    print('uid in vocab stream $uid');
     return booksCollection
         .where('uid', isEqualTo: uid)
         .snapshots()
