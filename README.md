@@ -1,6 +1,8 @@
 # vocabulary_app
 
-A new Flutter application.
+Vocabulary builder app in Flutter with firebase for authentication and authorization and firestore for database. 
+
+In this app one can create, read and delete document (working on update functionality).
 
 ## Getting Started
 
