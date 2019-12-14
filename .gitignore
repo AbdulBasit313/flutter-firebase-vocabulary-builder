@@ -38,6 +38,9 @@
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 
+# google services
+**/android/app/google-services.json
+
 # iOS/XCode related
 **/ios/**/*.mode1v3
 **/ios/**/*.mode2v3
