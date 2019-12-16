@@ -3,6 +3,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:vocabulary_app/models/vocab.dart';
 import 'package:vocabulary_app/services/database.dart';
 
+import 'add_word.dart';
+
 class VocabTile extends StatelessWidget {
   final DatabaseService _deleteData = DatabaseService();
   final Vocab vocab;
@@ -33,7 +35,14 @@ class VocabTile extends StatelessWidget {
             caption: 'Edit',
             color: Colors.green[400],
             icon: Icons.mode_edit,
-            onTap: () => print('Edit'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddWord(),
+                ),
+              );
+            },
           ),
         ),
         Padding(
@@ -43,7 +52,6 @@ class VocabTile extends StatelessWidget {
             color: Colors.red,
             icon: Icons.delete,
             onTap: () => _deleteData.deleteRecord(vocab.docId),
-            // onTap: () => print('delete'),
           ),
         ),
       ],

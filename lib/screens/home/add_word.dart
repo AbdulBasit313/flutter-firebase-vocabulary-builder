@@ -10,6 +10,7 @@ class AddWord extends StatefulWidget {
 
 class _AddWordState extends State<AddWord> {
   final _formKey = GlobalKey<FormState>();
+  final isEdited = false;
 
   final DatabaseService _addData = DatabaseService();
 
